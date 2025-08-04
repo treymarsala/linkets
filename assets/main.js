@@ -1,4 +1,4 @@
-var debug = false;
+lvar debug = false;
 
 var origin = '';
 
@@ -346,11 +346,8 @@ function unlinkTicket(id, relationship) {
 
 function invertRelationship(relationshipCode) {
   var invertedRelationships = {
-    'blckdby': 'blcks',
-    'blcks': 'blckdby',
-    'prnt': 'chld',
-    'chld': 'prnt',
-    'rlts': 'rlts'
+    'decline': 'dispute',
+    'dispute': 'reverification',
   }
 
   return invertedRelationships[relationshipCode]
@@ -358,11 +355,9 @@ function invertRelationship(relationshipCode) {
 
 function translateRelationship(relationshipCode) {
   var relationships = {
-    'blckdby': 'Blocked By',
-    'blcks': 'Blocks',
-    'prnt': 'Parent',
-    'chld': 'Child',
-    'rlts': 'Relates To'
+    'decline': 'Declined Verification',
+    'dispute': 'Dispute Ticket',
+    'reverification': 'Reverification Ticket',
   }
 
   return relationships[relationshipCode]
